@@ -1,0 +1,7 @@
+Streams are the key abstraction in Java 8 for processing collections of values and
+specifying what you want to have done, leaving the scheduling of operations to
+the implementation. For example, if you want to compute the average of the
+values of a certain method, you specify that you want to call the method on each
+element and get the average of the values. You leave it to the stream library to
+parallelize the operation, using multiple threads for computing sums and counts
+of each segment and combining the results.
