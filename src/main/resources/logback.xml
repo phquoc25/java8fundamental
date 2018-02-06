@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+  ~ Copyright (C) 2016 Deveryware S.A. All Rights Reserved.
+  -->
+
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>logs/test.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>logs/test.%d{yyyy-MM-dd}.log.zip</FileNamePattern>
+        </rollingPolicy>
+
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%-26(%d{ISO8601} [%thread]) %-5level %X{user} %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-26(%d{ISO8601} [%thread]) %-5level %X{user} %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+	<root>
+        <level value="debug" />
+        <appender-ref ref="FILE" />
+        <appender-ref ref="STDOUT" />
+	</root>
+
+</configuration>
